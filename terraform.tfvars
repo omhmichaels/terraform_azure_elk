@@ -1,3 +1,11 @@
 ### AZ Resource Group Configuration ###
-resource_group_name= "test"
-location= "westus"
+rg_tags = {
+  name        = "elk_stack"
+  location    = "westus2"
+  terraform   = "true"
+  description = "Resource Group for Elk Stack"
+}
+
+vnet_tags = {
+
+}
