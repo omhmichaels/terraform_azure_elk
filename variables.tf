@@ -21,3 +21,16 @@ variable "subnet_public_tags" {
   description = "Private subnet tags"
 
 }
+
+variable "jumpbox_nic" {
+  description = "Jumpbox Nic Config Tags"
+}
+
+variable "jumpbox_tags" {
+  description = "Jumpbox Configuration Tags"
+}
+
+variable "jumpbox_public_ip" {
+  description = "Jumpbox Public IP"
+
+}
