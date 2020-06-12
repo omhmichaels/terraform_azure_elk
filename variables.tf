@@ -13,3 +13,17 @@ variable "vnet_tags" {
 
   }
 }
+
+variable "subnet_private_tags" {
+    description = "Private subnet tags"
+    default = {
+
+    }
+}
+
+variable "subnet_public_tags" {
+    description = "Private subnet tags"
+    default = {
+        
+    }
+}
