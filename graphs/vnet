@@ -1,0 +1,44 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] azurerm_network_ddos_protection_plan.elk_ddos_plan" [label = "azurerm_network_ddos_protection_plan.elk_ddos_plan", shape = "box"]
+		"[root] azurerm_network_security_group.http_sg" [label = "azurerm_network_security_group.http_sg", shape = "box"]
+		"[root] azurerm_network_security_group.https_sg" [label = "azurerm_network_security_group.https_sg", shape = "box"]
+		"[root] azurerm_network_security_group.private_sg" [label = "azurerm_network_security_group.private_sg", shape = "box"]
+		"[root] azurerm_network_security_group.public_sg" [label = "azurerm_network_security_group.public_sg", shape = "box"]
+		"[root] azurerm_network_security_group.ssh_sg" [label = "azurerm_network_security_group.ssh_sg", shape = "box"]
+		"[root] azurerm_resource_group.elk_rg" [label = "azurerm_resource_group.elk_rg", shape = "box"]
+		"[root] azurerm_virtual_network.elk_vnet" [label = "azurerm_virtual_network.elk_vnet", shape = "box"]
+		"[root] provider.azurerm" [label = "provider.azurerm", shape = "diamond"]
+		"[root] var.rg_tags" [label = "var.rg_tags", shape = "note"]
+		"[root] var.subnet_private_tags" [label = "var.subnet_private_tags", shape = "note"]
+		"[root] var.subnet_public_tags" [label = "var.subnet_public_tags", shape = "note"]
+		"[root] var.vnet_tags" [label = "var.vnet_tags", shape = "note"]
+		"[root] azurerm_network_ddos_protection_plan.elk_ddos_plan" -> "[root] azurerm_resource_group.elk_rg"
+		"[root] azurerm_network_security_group.http_sg" -> "[root] azurerm_resource_group.elk_rg"
+		"[root] azurerm_network_security_group.https_sg" -> "[root] azurerm_resource_group.elk_rg"
+		"[root] azurerm_network_security_group.private_sg" -> "[root] azurerm_resource_group.elk_rg"
+		"[root] azurerm_network_security_group.public_sg" -> "[root] azurerm_resource_group.elk_rg"
+		"[root] azurerm_network_security_group.ssh_sg" -> "[root] azurerm_resource_group.elk_rg"
+		"[root] azurerm_resource_group.elk_rg" -> "[root] provider.azurerm"
+		"[root] azurerm_resource_group.elk_rg" -> "[root] var.rg_tags"
+		"[root] azurerm_virtual_network.elk_vnet" -> "[root] azurerm_network_ddos_protection_plan.elk_ddos_plan"
+		"[root] azurerm_virtual_network.elk_vnet" -> "[root] azurerm_network_security_group.private_sg"
+		"[root] azurerm_virtual_network.elk_vnet" -> "[root] azurerm_network_security_group.public_sg"
+		"[root] azurerm_virtual_network.elk_vnet" -> "[root] var.subnet_private_tags"
+		"[root] azurerm_virtual_network.elk_vnet" -> "[root] var.subnet_public_tags"
+		"[root] azurerm_virtual_network.elk_vnet" -> "[root] var.vnet_tags"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_network_security_group.http_sg"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_network_security_group.https_sg"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_network_security_group.ssh_sg"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_virtual_network.elk_vnet"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_network_security_group.http_sg"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_network_security_group.https_sg"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_network_security_group.ssh_sg"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_virtual_network.elk_vnet"
+		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
+		"[root] root" -> "[root] provider.azurerm (close)"
+	}
+}
+
