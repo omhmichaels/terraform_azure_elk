@@ -101,6 +101,19 @@ resource "azurerm_network_security_group" "https_sg" {
     destination_address_prefix = "*"
   }
 
+  security_rule {
+    name                       = "Default-Deny"
+    priority                   = 4096
+    direction                  = "Inbound"
+    access                     = "Deny"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+    description = "Deny all inbound traffic."
+  }
+  
   tags = {
     environment = "Production"
   }
@@ -184,6 +197,19 @@ resource "azurerm_network_security_group" "public_sg" {
     destination_port_range     = "443"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "Default-Deny"
+    priority                   = 4096
+    direction                  = "Inbound"
+    access                     = "Deny"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+    description = "Deny all inbound traffic."
   }
 
   tags = {
@@ -270,6 +296,19 @@ resource "azurerm_network_security_group" "private_sg" {
     destination_port_range     = "443"
     source_address_prefix      = "10.0.0.0"
     destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "Default-Deny"
+    priority                   = 4096
+    direction                  = "Inbound"
+    access                     = "Deny"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+    description = "Deny all inbound traffic."
   }
 
   tags = {
