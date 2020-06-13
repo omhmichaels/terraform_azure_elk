@@ -26,30 +26,30 @@ subnet_private_tags = {
   security_group   = ""
 }
 
-jumpbox_nic = {
-  internal_dns_name_label = "jumpbox"
-  ip_configuration_name = "jumpbox"
-  private_ip_address_allocation = "Static"
-  private_ip_address = "10.0.0.2"
-}
-
 jumpbox_tags = {
-  size = 
-  custom_data = 
-  os_name = 
-  os_caching = "ReadWrite"
-  storage_account_type = 
-  image_publisher = "Canonical"
-  image_offer = "UbuntuServer"
-  image_sku = "18.04-LTS"
-  image_tags = "latest"
-  computer_name = "jumpbox"
-  user = "jumper" 
-  disable_password_authentication = "true" 
-  public_key = "~/.ssh/jumpbox.pub"
+  size                            = "Standard_B1s"
+  custom_data                     = "bin/jumpbox.txt"
+  os_name                         = "jumpbox_disk"
+  os_caching                      = "ReadWrite"
+  storage_account_type            = "Standard_LRS"
+  image_publisher                 = "Canonical"
+  image_offer                     = "UbuntuServer"
+  image_sku                       = "18.04-LTS"
+  image_version                      = "latest"
+  computer_name                   = "jumpbox"
+  user                            = "jumper"
+  disable_password_authentication = "true"
+  public_key                      = "~/.ssh/jumpbox.pub"
 
 }
+jumpbox_nic = {
+  internal_dns_name_label       = "jumpbox"
+  ip_configuration_name         = "jumpbox"
+  private_ip_address_allocation = "Static"
+  private_ip_address            = "10.0.2.25"
+}
 
-jumpbox_public_ip = {
+
+jumpbox_ip = {
   allocation_method = "Static"
 }

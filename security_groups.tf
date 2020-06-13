@@ -111,9 +111,9 @@ resource "azurerm_network_security_group" "https_sg" {
     destination_port_range     = "*"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
-    description = "Deny all inbound traffic."
+    description                = "Deny all inbound traffic."
   }
-  
+
   tags = {
     environment = "Production"
   }
@@ -209,7 +209,7 @@ resource "azurerm_network_security_group" "public_sg" {
     destination_port_range     = "*"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
-    description = "Deny all inbound traffic."
+    description                = "Deny all inbound traffic."
   }
 
   tags = {
@@ -308,7 +308,7 @@ resource "azurerm_network_security_group" "private_sg" {
     destination_port_range     = "*"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
-    description = "Deny all inbound traffic."
+    description                = "Deny all inbound traffic."
   }
 
   tags = {

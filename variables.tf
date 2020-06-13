@@ -30,7 +30,7 @@ variable "jumpbox_tags" {
   description = "Jumpbox Configuration Tags"
 }
 
-variable "jumpbox_public_ip" {
+variable "jumpbox_ip" {
   description = "Jumpbox Public IP"
 
 }
