@@ -9,8 +9,13 @@ digraph {
 		"[root] azurerm_network_security_group.public_sg" [label = "azurerm_network_security_group.public_sg", shape = "box"]
 		"[root] azurerm_network_security_group.ssh_sg" [label = "azurerm_network_security_group.ssh_sg", shape = "box"]
 		"[root] azurerm_resource_group.elk" [label = "azurerm_resource_group.elk", shape = "box"]
+		"[root] azurerm_subnet.subnet_private" [label = "azurerm_subnet.subnet_private", shape = "box"]
+		"[root] azurerm_subnet.subnet_public" [label = "azurerm_subnet.subnet_public", shape = "box"]
+		"[root] azurerm_virtual_network.elk_vnet" [label = "azurerm_virtual_network.elk_vnet", shape = "box"]
 		"[root] provider.azurerm" [label = "provider.azurerm", shape = "diamond"]
 		"[root] var.rg_tags" [label = "var.rg_tags", shape = "note"]
+		"[root] var.subnet_private_tags" [label = "var.subnet_private_tags", shape = "note"]
+		"[root] var.subnet_public_tags" [label = "var.subnet_public_tags", shape = "note"]
 		"[root] var.vnet_tags" [label = "var.vnet_tags", shape = "note"]
 		"[root] azurerm_network_ddos_protection_plan.elk_ddos_plan" -> "[root] azurerm_resource_group.elk"
 		"[root] azurerm_network_security_group.http_sg" -> "[root] azurerm_resource_group.elk"
@@ -20,19 +25,26 @@ digraph {
 		"[root] azurerm_network_security_group.ssh_sg" -> "[root] azurerm_resource_group.elk"
 		"[root] azurerm_resource_group.elk" -> "[root] provider.azurerm"
 		"[root] azurerm_resource_group.elk" -> "[root] var.rg_tags"
-		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_network_ddos_protection_plan.elk_ddos_plan"
+		"[root] azurerm_subnet.subnet_private" -> "[root] azurerm_virtual_network.elk_vnet"
+		"[root] azurerm_subnet.subnet_private" -> "[root] var.subnet_private_tags"
+		"[root] azurerm_subnet.subnet_public" -> "[root] azurerm_virtual_network.elk_vnet"
+		"[root] azurerm_subnet.subnet_public" -> "[root] var.subnet_public_tags"
+		"[root] azurerm_virtual_network.elk_vnet" -> "[root] azurerm_network_ddos_protection_plan.elk_ddos_plan"
+		"[root] azurerm_virtual_network.elk_vnet" -> "[root] var.vnet_tags"
 		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_network_security_group.http_sg"
 		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_network_security_group.https_sg"
 		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_network_security_group.private_sg"
 		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_network_security_group.public_sg"
 		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_network_security_group.ssh_sg"
-		"[root] meta.count-boundary (EachMode fixup)" -> "[root] var.vnet_tags"
-		"[root] provider.azurerm (close)" -> "[root] azurerm_network_ddos_protection_plan.elk_ddos_plan"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_subnet.subnet_private"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_subnet.subnet_public"
 		"[root] provider.azurerm (close)" -> "[root] azurerm_network_security_group.http_sg"
 		"[root] provider.azurerm (close)" -> "[root] azurerm_network_security_group.https_sg"
 		"[root] provider.azurerm (close)" -> "[root] azurerm_network_security_group.private_sg"
 		"[root] provider.azurerm (close)" -> "[root] azurerm_network_security_group.public_sg"
 		"[root] provider.azurerm (close)" -> "[root] azurerm_network_security_group.ssh_sg"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_subnet.subnet_private"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_subnet.subnet_public"
 		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
 		"[root] root" -> "[root] provider.azurerm (close)"
 	}
