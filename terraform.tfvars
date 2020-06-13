@@ -1,6 +1,6 @@
 ### AZ Resource Group Configuration ###
 rg_tags = {
-  name        = "elk_rg"
+  name        = "elk"
   location    = "westus2"
   terraform   = "true"
   description = "Resource Group for Elk Stack"
