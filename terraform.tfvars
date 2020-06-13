@@ -1,6 +1,6 @@
 ### AZ Resource Group Configuration ###
 rg_tags = {
-  name        = "elk_stack"
+  name        = "elk_rg"
   location    = "westus2"
   terraform   = "true"
   description = "Resource Group for Elk Stack"
@@ -13,15 +13,15 @@ vnet_tags = {
 }
 
 subnet_public_tags = {
-  name           = "public"
-  terraform      = "true"
-  address_prefix = "10.0.1.0/24"
-  security_group = ""
+  name             = "public"
+  terraform        = "true"
+  address_prefixes = "10.0.1.0/24"
+  security_group   = ""
 }
 
 subnet_private_tags = {
-  name           = "private"
-  terraform      = "true"
-  address_prefix = "10.0.2.0/24"
-  security_group = ""
+  name             = "private"
+  terraform        = "true"
+  address_prefixes = "10.0.2.0/24"
+  security_group   = ""
 }

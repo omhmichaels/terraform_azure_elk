@@ -1,9 +1,9 @@
 
 
 resource "azurerm_network_security_group" "ssh_sg" {
-  name                = "${azurerm_resource_group.elk_rg.name}-ssh_sg"
-  location            = azurerm_resource_group.elk_rg.location
-  resource_group_name = azurerm_resource_group.elk_rg.name
+  name                = "${azurerm_resource_group.elk.name}-ssh_sg"
+  location            = azurerm_resource_group.elk.location
+  resource_group_name = azurerm_resource_group.elk.name
 
   security_rule {
     name                       = "ssh-inbound"
@@ -36,9 +36,9 @@ resource "azurerm_network_security_group" "ssh_sg" {
 }
 
 resource "azurerm_network_security_group" "http_sg" {
-  name                = "${azurerm_resource_group.elk_rg.name}-http_sg"
-  location            = azurerm_resource_group.elk_rg.location
-  resource_group_name = azurerm_resource_group.elk_rg.name
+  name                = "${azurerm_resource_group.elk.name}-http_sg"
+  location            = azurerm_resource_group.elk.location
+  resource_group_name = azurerm_resource_group.elk.name
 
   security_rule {
     name                       = "http-inbound"
@@ -72,9 +72,9 @@ resource "azurerm_network_security_group" "http_sg" {
 }
 
 resource "azurerm_network_security_group" "https_sg" {
-  name                = "${azurerm_resource_group.elk_rg.name}-https_sg"
-  location            = azurerm_resource_group.elk_rg.location
-  resource_group_name = azurerm_resource_group.elk_rg.name
+  name                = "${azurerm_resource_group.elk.name}-https_sg"
+  location            = azurerm_resource_group.elk.location
+  resource_group_name = azurerm_resource_group.elk.name
 
   security_rule {
     name                       = "https-inbound"
@@ -107,9 +107,9 @@ resource "azurerm_network_security_group" "https_sg" {
 }
 
 resource "azurerm_network_security_group" "public_sg" {
-  name                = "${azurerm_resource_group.elk_rg.name}-https_sg"
-  location            = azurerm_resource_group.elk_rg.location
-  resource_group_name = azurerm_resource_group.elk_rg.name
+  name                = "${azurerm_resource_group.elk.name}-https_sg"
+  location            = azurerm_resource_group.elk.location
+  resource_group_name = azurerm_resource_group.elk.name
 
   security_rule {
     name                       = "ssh-inbound"
@@ -193,9 +193,9 @@ resource "azurerm_network_security_group" "public_sg" {
 
 
 resource "azurerm_network_security_group" "private_sg" {
-  name                = "${azurerm_resource_group.elk_rg.name}-https_sg"
-  location            = azurerm_resource_group.elk_rg.location
-  resource_group_name = azurerm_resource_group.elk_rg.name
+  name                = "${azurerm_resource_group.elk.name}-https_sg"
+  location            = azurerm_resource_group.elk.location
+  resource_group_name = azurerm_resource_group.elk.name
 
   security_rule {
     name                       = "ssh-inbound"
